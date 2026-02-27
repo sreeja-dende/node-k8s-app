@@ -4,7 +4,9 @@ WORKDIR /app
 
 # Copy package files and node_modules installed on host
 COPY package*.json ./
-COPY node_modules ./node_modules
+# Install dependencies inside container
+RUN npm install
+#COPY node_modules ./node_modules
 
 # Copy rest of the source code
 COPY . .
